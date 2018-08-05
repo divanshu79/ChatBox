@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}ChatBox{% endblock %}</title>
+
+	{% load staticfiles %}
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Satisfy" >
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- For-Mobile-Apps -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Friends Chat History Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //For-Mobile-Apps -->
+
+	<!-- Style --> <link rel="stylesheet" href="{% static 'chat/css/style_2.css' %}" type="text/css" media="all">
+
+	<!-- Web-Fonts -->
+		<link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<!-- //Web-Fonts -->
+
+</head>
+
+<!-- Body -->
+<body>
+
+	<h1>Chat Room</h1>
+
+    <div id="chatbox">
+        {% for element in list %}
+        {% if element.u1 %}
+            <p>You:{{ element.u1 }}</p>
+        {% endif %}
+
+        {% if element.u2 %}
+            <p>User:{{ element.u2 }}</p>
+        {% endif %}
+        {% endfor %}
+
+           <div class="search-box">
+               <div id="sb-search" class="sb-search">
+                   <form method="get" action="{% url 'send' %}">
+                       <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="q" id="search">
+                       <span class="sb-icon-search"> </span>
+                   </form>
+               </div>
+           </div>
+    </div>
+
+	<!-- Custom-JavaScript-File-Links -->
+		<!-- Default-JavaScript --> <script src="{% static 'chat/js/jquery.min.js' %}"></script>
+		<!-- Tabs-JavaScript -->    <script src="{% static 'chat/js/tabs.js' %}"></script>
+	<!-- //Custom-JavaScript-File-Links -->
+
+</body>
+<!-- //Body -->
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en">
+{% csrf_token %}
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}ChatBox{% endblock %}</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Simple Signin Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	{% load staticfiles %}
+	{% csrf_token %}
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Satisfy" >
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="{% static 'chat/css/style_1.css' %}" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="{% static 'chat/css/font-awesome.css' %}">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- web-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<!-- //web-fonts -->
+</head>
+
+<body>
+{% csrf_token %}
+	<!--header-->
+	<div class="header-w3l">
+		<h1>
+			Ch<span>a</span>t B<span>o</span>x
+		</h1>
+	</div>
+	<!--//header-->
+	<div class="main-content-agile">
+		<div class="sub-main-w3">
+			<h2>Sign Up Now</h2>
+			<form action="{% url 'page' %}" method="get">
+				{% csrf_token %}
+				<label>Username</label>
+				<div class="pom-agile">
+					<span class="fa fa-user-o" aria-hidden="true"></span>
+					<input placeholder="Username" name="uid" class="user" type="text" required="">
+				</div>
+				<label>Name</label>
+				<div class="pom-agile">
+					<span class="fa fa-user-o" aria-hidden="true"></span>
+					<input placeholder="Username" name="name" class="user" type="text" required="">
+				</div>
+				<label>Email</label>
+				<div class="pom-agile">
+					<span class="fa fa-user-o" aria-hidden="true"></span>
+					<input placeholder="Email" name="email" class="user" type="text" required="">
+				</div>
+				<label>Password</label>
+				<div class="pom-agile">
+					<span class="fa fa-key" aria-hidden="true"></span>
+					<input placeholder="Password" name="Password" class="pass" type="password" required="">
+				</div>
+				<label>Retype Password</label>
+				<div class="pom-agile">
+					<span class="fa fa-key" aria-hidden="true"></span>
+					<input placeholder="Password" name="1" class="pass" type="password" required="">
+				</div>
+				<div class="right-w3l">
+					<input type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>{% block title %}ChatBox{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Satisfy" >
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'chat/css/custom.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<!-- Style --> <link rel="stylesheet" href="{% static 'chat/css/style_2.css' %}" type="text/css" media="all">
+
+	<!-- Web-Fonts -->
+		<link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<!-- //Web-Fonts -->
+
+    <script type="text/javascript" src="{% static 'chat/js/jquery-2.1.4.min_1.js' %}"></script>
+	<!-- //js -->
+	<!--skycons-icons-->
+
+	<!--//skycons-icons-->
+	<link href="{% static 'chat/css/style_3.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+	<style>
+		body {
+    			background: url("/static/chat/images/images/banner.jpg") no-repeat 0px 0px;
+				background-size: cover;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				-ms-background-size: cover;
+				min-height:745px;
+				font-family: 'Josefin Sans', sans-serif;
+		}
+
+		#navbar {
+		  overflow: hidden;
+		  background-color: #333;
+		}
+
+		#navbar a {
+		  float: left;
+		  display: block;
+		  color: #f2f2f2;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 17px;
+		}
+
+		#navbar a:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+
+		#navbar a.active {
+		  background-color: #4CAF50;
+		  color: white;
+		}
+
+		.sticky {
+		  position: fixed;
+		  top: 0;
+		  width: 100%
+		}
+
+		input[type=text] {
+			width: 130px;
+			width: 100%;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			font-size: 16px;
+			background-color: #eaf3f9;
+			background-repeat: no-repeat;
+			padding: 12px 20px 12px 40px;
+			-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
+		}
+
+		input[type=text]:focus {
+    		width: 100%;
+		}
+
+	</style>
+
+	<script>
+	function request(id){
+		console.log('hello');
+		var LogOut = document.getElementById('LogOut').name;
+		console.log("data: " + LogOut);
+		$.ajax({
+		url:"/home/",
+    	type: "GET",
+		data: {LogOut:LogOut},
+		success:function(response){
+    	document.location.href= {% url 'home' %};
+    	},
+    	complete:function(){},
+    	error:function (xhr, textStatus, thrownError){
+        	alert("Internet Problem");
+    	}
+		});
+	}
+
+	function home(id)
+    {
+        console.log('hello');
+		var LogOut = document.getElementById('LogOut').name;
+		console.log("data: " + LogOut);
+		$.ajax({
+		url:"/home/",
+    	type: "GET",
+		data: {LogOut:LogOut},
+		success:function(response){
+    	console.log(response)
+    	},
+    	complete:function(){},
+    	error:function (xhr, textStatus, thrownError){
+        	alert("Internet Problem");
+    	}
+		});
+
+    }
+
+</script>
+
+	<script>
+	function r(id){
+		console.log('hello');
+		console.log("data: " + LogOut);
+		$.ajax({
+		success:function(response){
+    	document.location.href= {% url 'home' %};
+    	},
+    	complete:function(){},
+    	error:function (xhr, textStatus, thrownError){
+        	alert("Internet Problem");
+    	}
+		});
+	}
+
+
+</script>
+
+	<script type="text/javascript">
+		function re(id){
+			console.log('hello');
+			$.ajax({
+				success:function(response){
+
+    				document.location.href= {% url 'profile' %};
+
+    			},
+    			complete:function(){},
+    			error:function (xhr, textStatus, thrownError){
+        			alert("Internet Problem");
+    			}
+			});
+
+		}
+	</script>
+
+</head>
+
+<script type="text/javascript">
+    function request_access(id){
+    console.log('hello');
+    var name = document.getElementById("name_"+id).value;
+    var Uid = document.getElementById("Uid_"+id).value;
+    console.log("data:"+ name);
+    $.ajax({
+    url:"/send/",
+    type: "GET",
+    data: {name:name},
+    success:function(response){
+
+    document.location.href= {% url 'send' %} + "?name="+name;
+
+    },
+    complete:function(){},
+    error:function (xhr, textStatus, thrownError){
+        alert("Internet Problem");
+    }
+});
+
+}
+
+
+        function send(id)
+            {
+                var name = document.getElementById("name_"+id).value;
+                console.log("data: " + name);
+               $.ajax({
+                url:"/send/",
+                type: "GET",
+                data: {name:name},
+                success:function(response){
+                    console.log(response)
+                },
+                complete:function(){},
+                error:function (xhr, textStatus, thrownError){
+                    alert("error doing something");
+                }
+                });
+
+            }
+
+</script>
+
+<script type="text/javascript">
+		function ree(id){
+			console.log('hello');
+			var All_Contact = document.getElementById('All_Contact').name;
+			console.log("data: "+All_Contact);
+			$.ajax({
+				url:"/send_data/",
+				type: "GET",
+				data: {All_Contact:All_Contact},
+				success:function(response){
+
+    				document.location.href= {% url 'send_data' %} + "?All_Contact="+All_Contact;
+
+    			},
+    			complete:function(){},
+    			error:function (xhr, textStatus, thrownError){
+        			alert("Internet Problem");
+    			}
+			});
+
+		}
+	</script>
+
+<script type="text/javascript">
+		function ree1(id){
+			console.log('hello');
+			var user = document.getElementById('user_'+id).name;
+			var user1 = document.getElementById('user1_'+id).name;
+			console.log("data: "+user);
+			$.ajax({
+				url:"/send/",
+				type: "GET",
+				data: {user:user},
+				success:function(response){
+
+    				document.location.href= {% url 'send' %} + "?user="+user;
+
+    			},
+    			complete:function(){},
+    			error:function (xhr, textStatus, thrownError){
+        			alert("Internet Problem");
+    			}
+			});
+
+		}
+	</script>
+
+<body>
+
+	<!--<h1>Chat Room</h1>-->
+	<div id="navbar">
+		<a onclick='r({{l}})' id="Home" name="Home">Home</a>
+		<a onclick="re({{l}})" id="Profile" name="Profile">Profile</a>
+		<a onclick="ree({{l}})" id="All_Contact" name="All_Contact">Contact</a>
+		<a onclick='request({{l}})' style="float:right" id="LogOut" name="LogOut">LogOut</a>
+		</div>
+
+
+    <div class="main-info">
+        <div class="main-info-grid1">
+				<h5>Contacts</h5>
+				<div class="navigation-bottom-menu-bottom scrollbar" id="style-2">
+					{% for e in ss %}
+						<div class="nav-btm-menu-btm-grid">
+						<div class="nav-btm-menu-btm-grid-left">
+							<img src="{% static 'chat/images/images/1.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="nav-btm-menu-btm-grid-left1">
+                            <h3><a onclick='ree1("{{forloop.counter}}")' id="user_{{forloop.counter}}" name="{{ e.name }}" style="color:white">{{ e.u1 }}</a></h3>
+							<p><a onclick='ree1("{{forloop.counter}}")' id="user1_{{forloop.counter}}" name="{{ e.name }}">{{ e.name }}</a></p>
+						</div>
+						<div class="nav-btm-menu-btm-grid-right">
+							<!--<h4></h4>-->
+						</div>
+						<div class="clear"> </div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+    </div>
+
+    <div style="width:300px;position: fixed;right:50px;bottom:0px;">
+			<!--{% for e in data %}-->
+				<!--<p>{{ e.Uid }}</p>-->
+			<!--{% endfor %}-->
+			<div class="row border-chat">
+				<div class="col-md-12 col-sm-12 col-xs-12 first-section" style="background:#87d2e5">
+					<div class="row">
+						<div class="col-md-8 col-sm-6 col-xs-6 left-first-section" >
+							{% for e in data %}
+								<input type="text" style="display: none;" value="{{ e.name }}">
+								<h6 style="font-size:16px;color:black;line-height: 2.3;">{{ e.name }}</h6>
+							{% endfor %}
+							<!--<p>Chat</p>-->
+						</div>
+						<div class="col-md-4 col-sm-6 col-xs-6 right-first-section">
+							<!--<a href="#"><i class="fa fa-minus" aria-hidden="true"></i></a>-->
+							<!--<a href="#"><i class="fa fa-clone" aria-hidden="true"></i></a>-->
+							<a href="send_data"><i class="fa fa-times" aria-hidden="true"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row border-chat">
+				<div class="col-md-12 col-sm-12 col-xs-12 second-section">
+					<div class="chat-section">
+						<ul>
+							{% for element in list %}
+							{% if element.u2 %}
+								<li>
+									<div class="left-chat">
+										<img src="{% static 'chat/images/image/1499345471_boy.png' %}">
+										<p>{{ element.u2 }}
+										</p>
+									</div>
+								</li>
+							{% endif %}
+							{% if element.u1 %}
+								<li>
+									<div class="right-chat">
+										<img src="{% static 'chat/images/image/man.png' %}">
+										<p>{{ element.u1 }}</p>
+									</div>
+								</li>
+							{% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+		</div>
+			<div class="row border-chat">
+					<!--<div class="text-bar">-->
+						<!--{% for e in data %}-->
+							<!--<input type="text" id="data_{{forloop.counter}}" placeholder="Write messege" name="q"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true" onclick='request_access("{{forloop.counter}}")'></i></a>-->
+						<!--{% endfor %}-->
+					<!--</div>-->
+					<form method="get" action="{% url 'send' %}">
+						<input type="text" name="q" placeholder="Search..">
+						<!--<span class="sb-icon-search"> </span>-->
+					</form>
+			</div>
+	</div>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    	$(".left-first-section").click(function(){
+            $('.main-section').toggleClass("open-more");
+        });
+    });
+    $(document).ready(function(){
+    	$(".fa-minus").click(function(){
+            $('.main-section').toggleClass("open-more");
+        });
+    });
+</script>
+
+</body>
+</html>
